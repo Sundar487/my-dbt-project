@@ -1,0 +1,246 @@
+version: 2
+
+sources:
+  - name: clarity_qa
+    description: a clone of a mysql qa database
+    database: clarity_qa
+    schema: public
+    tables:
+      - name: booking_master
+        description: the raw booking_master details data
+        columns:
+          - name: booking_master_id
+            description: primary key for the raw booking_master data
+            tests:
+              - unique
+              - not_null
+
+      - name: flight_itinerary
+        description: the raw flight_itinerary details data
+        columns:
+          - name: flight_itinerary_id
+            description: primary key for the raw flight_itinerary data
+            tests:
+              - unique
+              - not_null
+        
+      - name: flight_journey
+        description: the raw flight_journey details data
+        columns:
+          - name: flight_journey_id
+            description: primary key for the raw flight_journey data
+            tests:
+              - unique
+              - not_null
+
+      - name: flight_segment
+        description: the raw flight_segment details data
+        columns:
+          - name: flight_journey_id
+            description: primary key for the raw flight_journey data
+            tests:
+              - unique
+              - not_null      
+
+      - name: supplier_wise_itinerary_fare_details
+        description: the raw supplier_wise_itinerary_fare_details data contains information about flight parent supplier and consumer
+        columns:
+          - name: supplier_wise_hotel_itinerary_fare_detail_id
+            description: primary key for the raw supplier_wise_itinerary_fare_details data
+            tests:
+              - unique
+              - not_null      
+
+      - name: supplier_wise_booking_total
+        description: the raw supplier_wise_booking_total data contains fare details for flight
+        columns:
+          - name: supplier_wise_hotel_itinerary_fare_detail_id
+            description: primary key for the raw supplier_wise_booking_total data
+            tests:
+              - unique
+              - not_null      
+
+      - name: flight_passenger
+        description: the raw flight_passenger data contains common passenger details for all products like Flight, Hotel, Car, Insurance, Activities, Packages and Transfers
+        columns:
+          - name: flight_passenger_id
+            description: primary key for the raw flight_passenger data
+            tests:
+              - unique
+              - not_null      
+
+      - name: account_details
+        description: the raw account_details data contains agency account details
+        columns:
+          - name: flight_passenger_id
+            description: primary key for the raw flight_passenger data
+            tests:
+              - unique
+              - not_null   
+
+      - name: portal_details
+        description: the raw portal_details data contains B2B and B2C portal names, portal_url and business type etc.
+        columns:
+          - name: portal_id
+            description: primary key for the raw portal_details data
+            tests:
+              - unique
+              - not_null  
+
+      - name: status_details
+        description: the raw status_details data 
+        columns:
+          - name: status_details_id
+            description: primary key for the raw status_details data
+            tests:
+              - unique
+              - not_null  
+
+
+      - name: pg_transaction_details
+        description: the raw pg_transaction_details contains payment data made through Payment Gateway
+        columns:
+          - name: portal_id
+            description: primary key for the raw portal_details data
+            tests:
+              - unique
+              - not_null  
+
+      - name: payment_gateway_details
+        description: the raw payment_gateway_details data contains payment in which payment gateway, transaction is done
+        columns:
+          - name: gateway_id
+            description: primary key for the raw portal_details data
+            tests:
+              - unique
+              - not_null  
+
+      - name: booking_total_fare_details
+        description: the raw booking_total_fare_details data contains fare details for both flight and hotel
+        columns:
+          - name: gateway_id
+            description: primary key for the raw portal_details data
+            tests:
+              - unique
+              - not_null  
+
+      - name: car_itinerary
+        description: the raw car_itinerary details data 
+        columns:
+          - name: car_itinerary_id
+            description: primary key for the raw car_itinerary data
+            tests:
+              - unique
+              - not_null  
+
+      - name: car_supplier_wise_itinerary_fare_details
+        description: the raw car_supplier_wise_itinerary_fare_details  data contains information about fare, parent supplier and consumer 
+        columns:
+          - name: car_supplier_wise_itinerary_fare_detail_id
+            description: primary key for the raw car_supplier_wise_itinerary_fare_detail data
+            tests:
+              - unique
+              - not_null  
+
+      - name: hotel_itinerary
+        description: the raw hotel_itinerary details data  
+        columns:
+          - name: hotel_itinerary_id
+            description: primary key for the raw hotel_itinerary data
+            tests:
+              - unique
+              - not_null  
+
+      - name: supplier_wise_hotel_booking_total
+        description: the raw supplier_wise_hotel_booking_total data contains fare details for hotel
+        columns:
+          - name: supplier_wise_hotel_booking_total_id
+            description: primary key for the raw supplier_wise_hotel_booking_total data
+            tests:
+              - unique
+              - not_null    
+
+      - name: supplier_wise_hotel_itinerary_fare_details
+        description: the raw supplier_wise_hotel_itinerary_fare_details data contains information about fare, parent supplier and consumer 
+        columns:
+          - name: supplier_wise_hotel_itinerary_fare_detail_id
+            description: primary key for the raw supplier_wise_hotel_itinerary_fare_details data
+            tests:
+              - unique
+              - not_null    
+
+      - name: hotel_room_details
+        description: the raw hotel_room_details data contains information about fare, parent supplier and consumer 
+        columns:
+          - name: hotel_room_details_id
+            description: primary key for the raw hotel_room_details data
+            tests:
+              - unique
+              - not_null    
+
+      - name: activity_details
+        description: the raw activity_details data 
+        columns:
+          - name: activity_details_id
+            description: primary key for the raw activity_details data
+            tests:
+              - unique
+              - not_null    
+
+      - name: activity_supplier_wise_fare_details
+        description: the raw activity_supplier_wise_fare_details data contains information about activity fare, parent supplier and consumer 
+        columns:
+          - name: activity_details_id
+            description: primary key for the raw activity_supplier_wise_fare_details data
+            tests:
+              - unique
+              - not_null   
+
+      - name: insurance_itinerary
+        description: the raw insurance_itinerary details data 
+        columns:
+          - name: insurance_itinerary_id
+            description: primary key for the raw insurance_itinerary data
+            tests:
+              - unique
+              - not_null   
+
+      - name: insurance_itinerary_fare_details
+        description: the raw insurance_itinerary_fare_detail data 
+        columns:
+          - name: insurance_itinerary_fare_details
+            description: primary key for the raw insurance_itinerary_fare_detail data
+            tests:
+              - unique
+              - not_null   
+
+      - name: insurance_supplier_wise_booking_total
+        description: the raw insurance_supplier_wise_booking_total data contains fare details for insurance
+        columns:
+          - name: insurance_supplier_wise_booking_total_id
+            description: primary key for the raw insurance_supplier_wise_booking_total data
+            tests:
+              - unique
+              - not_null   
+
+      - name: insurance_supplier_wise_itinerary_fare_details
+        description: the raw insurance_supplier_wise_itinerary_fare_detail_id data contains information about fare, parent supplier and consumer
+        columns:
+          - name: insurance_supplier_wise_itinerary_fare_detail_id
+            description: primary key for the raw insurance_supplier_wise_itinerary_fare_details data
+            tests:
+              - unique
+              - not_null  
+      
+      - name: search_master_new
+      - name: currency_exchange_rate
+      - name: currency_exchange_rate_sample
+
+
+      
+
+
+       
+
+
+  

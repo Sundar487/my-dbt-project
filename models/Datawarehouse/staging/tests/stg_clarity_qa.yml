@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_booking_master
+    description: one unique booking_master_id per row
+    columns: 
+      - name: bm_booking_master_id
+        description: primary key for the stg_booking_master     
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_car_itinerary
+    description: one car_itinerary_id per row
+    columns: 
+      - name: ci_car_itinerary_id
+        description: primary key for the stg_car_itinerary  
+        tests:
+          - unique
+          - not_null

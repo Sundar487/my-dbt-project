@@ -1,0 +1,14 @@
+mysql_dbt:
+  outputs:
+    dev:
+      dbname: clarity_qa
+      host: localhost
+      pass: postgres
+      port: 5432
+      schema: public
+      threads: 1
+      type: postgres
+      user: postgres
+  target: dev
+
+  
